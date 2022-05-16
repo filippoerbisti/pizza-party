@@ -26,7 +26,12 @@ const handler =  async (req, res) => {
     }
 
     if (method === "DELETE") {
-        
+        try {
+            await Order.findByIdAndDelete(id);
+            res.status(201).json("The order has been deleted");
+        } catch (err) {
+            res.status(500).json(err);
+        }
     }
 }
 
