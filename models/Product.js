@@ -1,6 +1,6 @@
-import moongose from "moongose"
+import mongoose from "mongoose"
 
-const ProductSchema = new moongose.Schema (
+const ProductSchema = new mongoose.Schema (
     {
         title: {
             type: String,
@@ -31,5 +31,5 @@ const ProductSchema = new moongose.Schema (
     }, { timestamps: true }
 )
 
-export default moongose.models.Product || 
-    moongose.model("Product", ProductSchema)
+export default mongoose.models.Product || 
+    mongoose.model("Product", ProductSchema)

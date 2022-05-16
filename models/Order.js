@@ -1,6 +1,6 @@
-import moongose from "moongose"
+import mongoose from "mongoose"
 
-const OrderSchema = new moongose.Schema (
+const OrderSchema = new mongoose.Schema (
     {
         customer: {
             type: String,
@@ -27,5 +27,5 @@ const OrderSchema = new moongose.Schema (
     }, { timestamps: true }
 )
 
-export default moongose.models.Order || 
-    moongose.model("Order", OrderSchema)
+export default mongoose.models.Order || 
+    mongoose.model("Order", OrderSchema)
