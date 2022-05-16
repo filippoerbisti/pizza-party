@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import dbConnect from "../../../lib/mongo"
-import Order from "../../../models/Order";
 import Order from "../../../models/Order"
 
 const handler =  async (req, res) => {
