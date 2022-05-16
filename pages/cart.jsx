@@ -16,8 +16,9 @@ const Cart = () => {
     const [open, setOpen] = useState(false)
 
     // This values are the props in the UI
+    const paypalFunding = "paypal";
     const amount = "2";
-    const currency = "USD";
+    const currency = "EUR";
     const style = {"layout":"vertical"};
 
     // Custom component to wrap the PayPalButtons and handle currency changes
@@ -44,7 +45,7 @@ const Cart = () => {
                     style={style}
                     disabled={false}
                     forceReRender={[amount, currency, style]}
-                    fundingSource={undefined}
+                    fundingSource={paypalFunding}
                     createOrder={(data, actions) => {
                         return actions.order
                             .create({
@@ -63,7 +64,7 @@ const Cart = () => {
                             });
                     }}
                     onApprove={function (data, actions) {
-                        return actions.order.capture().then(function () {
+                        return actions.order.capture().then(function (details) {
                             // Your code here after capture the order
                         });
                     }}
@@ -86,6 +87,8 @@ const Cart = () => {
                         <th>Quantity</th>
                         <th>Total</th>
                     </tr>
+                </tbody>
+                <tbody>
                     {cart.products.map((product) => (
                         <tr className={styles.tr}>
                             <td>
@@ -139,12 +142,12 @@ const Cart = () => {
                 </div>
                 {open ? (
                     <div className={styles.paymentMethods}>
-                        <button className={styles.payButton}>CASH ONDELIVERY</button>
+                        <button className={styles.payButton}>CASH ON DELIVERY</button>
                         <PayPalScriptProvider
                             options={{
-                                "client-id": "test",
+                                "client-id": "Ad4p4YDLfL9fOd4p1BJD8K9UldKPc3myAIGQKbLfoiQdhOjcHcwuCLEF8lFoRu7H1KMvmMJaIk3pQC8R",
                                 components: "buttons",
-                                currency: "USD",
+                                currency: "EUR",
                                 "disable-funding": "credit,card,p24",
                             }}
                         >
