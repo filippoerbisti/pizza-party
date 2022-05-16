@@ -8,6 +8,8 @@ const index = ({orders, products}) => {
     const [productList, setProductList] = useState(products);
     const [orderList, setOrderList] = useState(orders);
 
+    const status = ["Preparing", "On the way", "Delivered"];
+
     const handleDelete = async (id) => {
         try {
             const res = await axios.delete("http://localhost:3000/api/products/" + id);
@@ -78,18 +80,22 @@ const index = ({orders, products}) => {
                         <th>Action</th>
                     </tr>
                 </tbody>
-                <tbody>
-                    <tr className={styles.trTitle}>
-                        <td>{"0123456789".slice(0,10)}...</td>
-                        <td>Filippo</td>
-                        <td>$100</td>
-                        <td>Paid</td>
-                        <td>Preparing</td>
-                        <td>
-                            <button>Next Stage</button>
-                        </td>
-                    </tr>
-                </tbody>
+                {orderList.map(order => (
+                    <tbody key={order._id}>
+                        <tr className={styles.trTitle}>
+                            <td>{order._id.slice(0,10)}...</td>
+                            <td>{order.customer}</td>
+                            <td>${order.total}</td>
+                            <td>
+                                {order.methos === 0 ? (<span>Cash</span>) : (<span>Paid</span>)}
+                            </td>
+                            <td>{status[order.status]}</td>
+                            <td>
+                                <button>Next Stage</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                ))}
             </table>
         </div>
 
