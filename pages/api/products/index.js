@@ -1,9 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import dbConnect from "../../../lib/mongo.js"
-import Product from "../../../models/Product.js"
+import dbConnect from "../../../lib/mongo"
+import Product from "../../../models/Product"
 
-export default async function handler(req, res) {
+const handler =  async (req, res) => {
     
     const { method } = req;
 
@@ -27,4 +27,6 @@ export default async function handler(req, res) {
         }
     }
 }
+
+export default handler
   

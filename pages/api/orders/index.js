@@ -1,14 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import dbConnect from "../../../lib/mongo.js"
-import Product from "../../../models/Product.js"
+import dbConnect from "../../../lib/mongo"
+import Order from "../../../models/Order"
 
 const handler =  async (req, res) => {
     
-    const { 
-        method, 
-        query: { id },
-    } = req;
+    const { method } = req;
 
     dbConnect()
 
@@ -21,16 +18,7 @@ const handler =  async (req, res) => {
         }
     }
 
-    if (method === "PUT") {
-        try {
-            const product = await Product.create(req.body);
-            res.status(201).json(product);
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    }
-
-    if (method === "DELETE") {
+    if (method === "POST") {
         try {
             const product = await Product.create(req.body);
             res.status(201).json(product);
