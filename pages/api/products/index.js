@@ -10,13 +10,18 @@ export default async function handler(req, res) {
     dbConnect()
 
     if (method === "GET") {
-
+        try {
+            const product = await Product.find();
+            res.status(200).json(product);
+        } catch (err) {
+            res.status(500).json(err);
+        }
     }
 
     if (method === "POST") {
         try {
             const product = await Product.create(req.body);
-            req.status(201).json(product);
+            res.status(201).json(product);
         } catch (err) {
             res.status(500).json(err);
         }
