@@ -10,7 +10,7 @@ const index = ({orders, products}) => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete("http://localhost:3000/products/" + id);
+            const res = await axios.delete("http://localhost:3000/api/products/" + id);
             setProductList(productList.filter(product => product._id !== id));
         } catch (err) {
             console.log(err);
