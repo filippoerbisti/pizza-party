@@ -4,7 +4,7 @@ import store from "../redux/store"
 import { Provider } from "react-redux"
 import axios from "axios"
 
-axios.defaults.baseURL = process.env.URL;
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
 function MyApp({ Component, pageProps }) {
   return (
