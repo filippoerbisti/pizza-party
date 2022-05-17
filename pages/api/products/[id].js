@@ -26,7 +26,7 @@ const handler =  async (req, res) => {
             const product = await Product.findByIdAndUpdate(id, req.body, {
                 new: true,
             });
-            res.status(201).json(product);
+            res.status(200).json(product);
         } catch (err) {
             res.status(500).json(err);
         }
