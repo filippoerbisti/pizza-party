@@ -113,7 +113,7 @@ const Cart = () => {
                 </tbody>
                 <tbody>
                     {cart.products.map((product) => (
-                        <tr className={styles.tr}>
+                        <tr className={styles.tr} key={product._id}>
                             <td>
                                 <div className={styles.imgContainer}>
                                     <Image 
