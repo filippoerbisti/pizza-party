@@ -7,7 +7,7 @@ const handler = (req, res) => {
             username === process.env.ADMIN_USERNAME && 
             password === process.env.ADMIN_PASSWORD
         ) {
-            res.setHeaders(
+            res.setHeader(
                 "Set-Cookie", 
                 cookie.serialize("token", process.env.TOKEN, {
                 maxAge: 60 * 60,
