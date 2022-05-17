@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useState } from "react"
 import styles from "../../styles/Admin.module.css"
 
-const index = ({orders, products}) => {
+const Index = ({orders, products}) => {
 
     const [productList, setProductList] = useState(products);
     const [orderList, setOrderList] = useState(orders);
@@ -142,4 +142,4 @@ export const getServerSideProps = async (ctx) => {
     }
 }
 
-export default index
+export default Index
